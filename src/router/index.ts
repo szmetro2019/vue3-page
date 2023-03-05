@@ -7,7 +7,7 @@ export const constantRoutes = [
     name: 'LoginBime',
     hidden: true,
     meta: {
-      title: 'Login'
+      title: 'LoginBime'
     },
     component: () => import('@/views/login/LoginBime.vue')
   },
