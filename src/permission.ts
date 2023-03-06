@@ -24,7 +24,7 @@ router.beforeEach(async (to, from, next) => {
   // NProgress.start()
   const { t } = i18n.global
   if (to.meta.title) {
-    document.title = t('route.' + to.meta.title) + '-来瞅一下'
+    document.title = t('route.' + to.meta.title) + '-vue3-max'
   }
   const hasToken = getToken()
   if (hasToken) {
