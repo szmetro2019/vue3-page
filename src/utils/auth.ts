@@ -36,4 +36,3 @@ if (nodeEnv === 'development') {
   qualityAxiosName = 'period_demo'
 }
 export { qualityAxiosName }
-

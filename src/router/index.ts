@@ -20,28 +20,29 @@ export const constantRoutes = [
     component: Layout,
     name: 'Workbench',
     redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'DashboardBox',
-      meta: {
-        title: 'DashboardBox'
+    children: [
+      {
+        path: 'dashboard',
+        name: 'DashboardBox',
+        meta: {
+          title: 'DashboardBox'
+        },
+        component: () => import('@/views/workbench/dashboard/DashboardBox.vue')
       },
-      component: () => import('@/views/workbench/dashboard/DashboardBox.vue')
-    },
-    {
-      path: 'center',
-      name: 'CenterBox',
-      meta: {
-        title: 'CenterBox'
-      },
-      component: () => import('@/views/workbench/center/CenterBox.vue')
-    }
+      {
+        path: 'center',
+        name: 'CenterBox',
+        meta: {
+          title: 'CenterBox'
+        },
+        component: () => import('@/views/workbench/center/CenterBox.vue')
+      }
     ]
   }
 ]
 
 export const dynamicRouter = {
-  "views/Empty/EmptyState": () => import("@/views/Empty/EmptyState.vue"),
+  'views/Empty/EmptyState': () => import('@/views/Empty/EmptyState.vue')
 }
 
 const router = createRouter({

@@ -59,7 +59,7 @@ export default defineConfig({
     viteCompression(),
   ],
   server: {
-    port: 1996,
+    port: 3715,
     open: true,
     proxy: {
       "/max": {

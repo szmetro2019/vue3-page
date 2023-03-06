@@ -19,14 +19,14 @@ const useInfoStore = defineStore('info', {
     return {
       login: '',
       routes: [] as any,
-      locale: getLocale() || "zhCn",
+      locale: getLocale() || 'zhCn'
     }
   },
   actions: {
     // locale
     localeInfo(locale: any) {
-      this.locale = locale;
-      setLocale(locale);
+      this.locale = locale
+      setLocale(locale)
     },
     // router
     addRouter() {
@@ -54,7 +54,7 @@ const useInfoStore = defineStore('info', {
       setTimeout(() => {
         location.reload()
       }, 50)
-    },
+    }
   }
 })
 
