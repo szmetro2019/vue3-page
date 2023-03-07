@@ -1,7 +1,9 @@
 <template>
   <div class="space-box space-pd">
     <div class="row-box-wrap">
-      <i-ant-design-step-forward-outlined></i-ant-design-step-forward-outlined>
+      <a-pagination v-model:current="current" :total="500" />
+
+      {{ $t('route.DashboardBox') }}
     </div>
   </div>
 </template>
@@ -11,9 +13,10 @@ export default {
 }
 </script>
 <script lang="ts" setup>
-import { onMounted, onActivated } from 'vue'
+import { onMounted, onActivated, ref } from 'vue'
 onMounted(() => {})
 onActivated(() => {})
+const current = ref<number>(6)
 </script>
 <style scoped>
 .my-adress {

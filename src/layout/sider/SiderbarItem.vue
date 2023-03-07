@@ -51,7 +51,7 @@ export default defineComponent({
   },
   setup(props) {
     const router = useRouter()
-    const { t } = useI18n()
+
     const { basePath } = toRefs(props)
 
     const toJunp = (val: string) => {
@@ -91,6 +91,8 @@ export default defineComponent({
       }
       return routePath ? routePath : routePath + basePath.value
     }
+
+    const { t } = useI18n()
     const generateTitle = (title: any) => {
       return t('route.' + title)
     }

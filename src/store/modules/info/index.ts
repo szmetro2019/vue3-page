@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { constantRoutes, dynamicRouter } from '@/router/index'
 import { setToken, removeToken, getLocale, setLocale } from '@/utils/auth'
 import { dynamic_router_list } from '@/assets/router'
-
+// import i18n from '@/locales/index'
 // 递归路由,获取完整的路由
 export function generateAsyncRouter(routerMap: any, serverRouterMap: any) {
   serverRouterMap.forEach(function (item: any) {
@@ -26,6 +26,9 @@ const useInfoStore = defineStore('info', {
     // locale
     localeInfo(locale: any) {
       this.locale = locale
+      // 暂时不修改
+      // const { t } = i18n.global
+      // document.title = t('route.' + to.meta.title) + '-vue3-max'
       setLocale(locale)
     },
     // router
