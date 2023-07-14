@@ -1,15 +1,14 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>{{ dayjs().to(dayjs('2022-11-01')) }} {{ $t('home') }}</h1>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<script lang="ts" setup>
+import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
+import relativeTime from '@/custom/dayjs/plugin/relativeTime'
+dayjs.locale('zh-cn')
+dayjs.extend(relativeTime)
+</script>
+<style></style>
