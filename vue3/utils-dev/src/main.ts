@@ -1,14 +1,17 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import store from './store/index'
+import i18n from './locales'
+import './styles/index.scss'
 
 import App from './App.vue'
 import router from './router'
 
-const app = createApp(App)
+async function utilsDevAdmin() {
+  const app = createApp(App)
+  app.use(store)
+  app.use(i18n)
+  await app.use(router)
+  app.mount('#app')
+}
 
-app.use(createPinia())
-app.use(router)
-
-app.mount('#app')
+utilsDevAdmin()
