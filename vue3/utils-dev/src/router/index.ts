@@ -13,6 +13,10 @@ const router = createRouter({
         {
           path: 'index',
           component: () => import('@/views/AboutView.vue')
+        },
+        {
+          path: 'locale',
+          component: () => import('@/views/locale/LocalePage.vue')
         }
       ]
     },
