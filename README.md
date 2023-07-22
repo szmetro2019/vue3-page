@@ -9,10 +9,10 @@
 | - | - | vue-cli5.x | 
 | - | - | ant-design-vue3.x | 
 | vue3 |  |  | 
-| - | utils-dev |  | 
+| - | ant-design-lx |  | 
 | - | - | vue3.x | 
 | - | - | vite4.x | 
-
+| - | - | ant-design-vue4.x | 
 
 ##### utils-dev所用插件
 
