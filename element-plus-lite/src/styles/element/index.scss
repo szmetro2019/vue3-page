@@ -1,0 +1,18 @@
+/* 只需要重写你需要的即可 */
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $border-radius: (
+    'base': 4px,
+    'small': 0px,
+    'round': 0px,
+    'circle': 100%,
+  ),
+   $scrollbar:(
+    'opacity': 0.25,
+   ),
+   $card:(
+    'padding':14px
+   )
+); 
+
+
+

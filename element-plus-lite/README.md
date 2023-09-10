@@ -1,4 +1,9 @@
-# element-plus-lite
+# vue3-admin
+
+vite4
+vue3
+node19.0.1
+git2
 
 This template should help get you started developing with Vue 3 in Vite.
 
