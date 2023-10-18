@@ -6,7 +6,7 @@ import type { ConfigEnv, UserConfig } from "vite";
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 // legacy
-import legacy from "@vitejs/plugin-legacy";
+// import legacy from "@vitejs/plugin-legacy";
 // gzip
 import viteCompression from "vite-plugin-compression";
 // svg
@@ -33,9 +33,9 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       vue(),
       vueJsx(),
 
-      legacy({
-        targets: ["defaults", "not IE 11"]
-      }),
+      // legacy({
+      //   targets: ["defaults", "not IE 11"]
+      // }),
 
       AutoImport({
         resolvers: [
