@@ -1,6 +1,6 @@
 {
-  "name": "h5-lite",
-  "version": "0.0.0",
+  "name": "vant-template",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
