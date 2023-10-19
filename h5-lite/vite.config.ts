@@ -1,34 +1,36 @@
 import { fileURLToPath, URL } from 'node:url'
 
 // import { defineConfig } from 'vite'
-import { loadEnv } from "vite";
-import type { ConfigEnv, UserConfig } from "vite";
+import { loadEnv } from 'vite'
+import type { ConfigEnv, UserConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 // legacy
 // import legacy from "@vitejs/plugin-legacy";
 // gzip
-import viteCompression from "vite-plugin-compression";
+import viteCompression from 'vite-plugin-compression'
 // svg
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import path from 'path'
 // icon
-import Icons from "unplugin-icons/vite";
-import IconsResolver from "unplugin-icons/resolver";
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 // pligun
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+// html
+import { createHtmlPlugin } from 'vite-plugin-html'
 // 当前工作目录路径
-const root: string = process.cwd();
+const root: string = process.cwd()
 // https://vitejs.dev/config/
-
-export default ({ mode }: ConfigEnv): UserConfig => {
+// command
+export default ({ command, mode }: ConfigEnv): UserConfig => {
   // export default defineConfig(({ mode }) => {
-  console.log(root);
+  console.log(root)
   // 环境变量
-  const env = loadEnv(mode, root, "");
+  const env = loadEnv(mode, root, '')
   return {
-    base: env.VITE_PUBLIC_PATH || "/",
+    base: env.VITE_PUBLIC_PATH || '/',
     plugins: [
       vue(),
       vueJsx(),
@@ -40,19 +42,19 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       AutoImport({
         resolvers: [
           IconsResolver({
-            prefix: 'Icon',
-          }),
-        ],
+            prefix: 'Icon'
+          })
+        ]
       }),
       Components({
         resolvers: [
           IconsResolver({
-            enabledCollections: ["openmoji"],
-          }),
-        ],
+            enabledCollections: ['openmoji']
+          })
+        ]
       }),
       Icons({
-        autoInstall: true,
+        autoInstall: true
       }),
 
       viteCompression(),
@@ -61,7 +63,15 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         iconDirs: [path.resolve(root, 'src/icons')],
         symbolId: 'icon-[dir]-[name]',
         inject: 'body-last',
-        customDomId: '__svg__icons__dom__',
+        customDomId: '__svg__icons__dom__'
+      }),
+      // 注入模板数据
+      createHtmlPlugin({
+        inject: {
+          data: {
+            ENABLE_ERUDA: env.VITE_ENABLE_ERUDA || 'false'
+          }
+        }
       })
     ],
     resolve: {
@@ -72,14 +82,14 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     server: {
       port: 4567,
       open: true,
-      host: true,
+      host: true
     },
     build: {
       rollupOptions: {
         output: {
-          chunkFileNames: "static/js/[name]-[hash].js",
-          entryFileNames: "static/js/[name]-[hash].js",
-          assetFileNames: "static/[ext]/[name]-[hash].[ext]"
+          chunkFileNames: 'static/js/[name]-[hash].js',
+          entryFileNames: 'static/js/[name]-[hash].js',
+          assetFileNames: 'static/[ext]/[name]-[hash].[ext]'
         }
       }
     }
